@@ -1,0 +1,38 @@
+{
+  "name": "payment",
+  "version": "1.0.0",
+  "description": "Simple, runnable examples for sending payments on the XRP Ledger and Xahau Network using their official JavaScript libraries.",
+  "main": "setup.js",
+  "type":"module",
+  "scripts": {
+    "test": "concurrently \"node xahau/src/nativePayment.js\" \"node xrpl/src/nativePayment.js\"",
+    "setup": "node setup.js",
+    "xahau:native": "node xahau/src/nativePayment.js",
+    "xrpl:native": "node xrpl/src/nativePayment.js"
+  },
+  "dependencies": {
+    "xahau": "^4.0.4",
+    "xrpl": "^5.0.0",
+    "concurrently": "^8.2.0"
+  },
+  "keywords": [
+    "xrpl",
+    "xahau",
+    "payment",
+    "IOU",
+    "memo",
+    "destination tag",
+    "partial payment",
+    "path payment"
+  ],
+  "author": "Xspence",
+  "contributors": [
+    "Handy_4ndy"
+  ],
+  "homepage": "https://xspence.co.uk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xspence-XRPL/payment.git"
+  },
+  "license": "MIT"
+}
