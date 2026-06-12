@@ -1,5 +1,5 @@
 {
-  "name": "payment",
+  "name": "js_payments",
   "version": "1.0.0",
   "description": "Simple, runnable examples for sending payments on the XRP Ledger and Xahau Network using their official JavaScript libraries.",
   "main": "setup.js",
