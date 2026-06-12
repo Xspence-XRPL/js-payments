@@ -1,4 +1,4 @@
-# XRPL & Xahau Payment Examples
+# js-payments
 
 [![Node.js](https://img.shields.io/node/v/xrpl.svg)](https://nodejs.org/)
 [![XRPL](https://img.shields.io/npm/v/xrpl.svg)](https://www.npmjs.com/package/xrpl)
@@ -10,13 +10,13 @@ A collection of minimal, focused JavaScript examples for sending different types
 - `xahau/` — Payment examples using the `xahau` library.
 - `xrpl/` — Payment examples using the official `xrpl` library.
 
-Purpose: Provide clean, copy-paste friendly scripts to quickly learn and experiment with native payments, IOU payments, memos, destination tags, partial payments, and path payments across both networks.
+**Purpose:** Provide clean, copy-paste friendly scripts to quickly learn and experiment with native payments, IOU payments, memos, destination tags, partial payments, and path payments.
 
 ## Overview
 
 This repository contains standalone example scripts designed for learning and quick experimentation. Each example is intentionally minimal and runnable directly with Node.js.
 
-A single command (`node setup.js`) creates fresh testnet accounts for both networks, sets up issuance and trustlines, creates DEX liquidity, and automatically updates all example files with working credentials. This means you always start with clean, functional examples and realistic liquidity for path payments.
+A single command (`node setup.js`) creates fresh testnet accounts for both networks, sets up issuance and trustlines, creates DEX liquidity, and automatically updates all example files with working credentials.
 
 Supported payment types:
 
@@ -31,12 +31,11 @@ See `xahau/README.md` and `xrpl/README.md` for network-specific details.
 
 ## Repository Structure
 
-- `xahau/` — Payment examples using the `xahau` library 
-- `xrpl/` — Payment examples using the `xrpl` library
-- `setup.js` — One-command setup that creates accounts, liquidity, and updates all examples
-- `config.json` — Generated credentials and setup history (created by setup.js)
+- `xahau/` — Payment examples using the `xahau` library (ESM)
+- `xrpl/` — Payment examples using the `xrpl` library (ESM)
+- `setup.js` — One-command setup (creates accounts + liquidity for both networks)
 - `package.json` — Root package metadata and npm scripts
-
+- 
 ## Prerequisites
 
 - Node.js v18 or later
@@ -51,8 +50,7 @@ npm install
 
 ## Setup
 
-- One-Command Setup (Recommended)
-- Run this once to create fresh accounts, trustlines, and DEX liquidity for both networks:
+Run this anytime to create fresh accounts, trustlines, and DEX liquidity for both networks:
 ```bash
 node setup.js
 ```
@@ -77,7 +75,7 @@ node xrpl/src/partialPayment.js
 node xrpl/src/pathPayment.js
 ```
 
-Common npm scripts (defined in `package.json`):
+## npm Scripts (defined in `package.json`):
 
 ```bash
 npm run test                # Executes the native payment for both networks concurrently
@@ -90,8 +88,8 @@ npm run xrpl:native         # Send a simple XRP payment
 
 - All examples currently target Testnet (Xahau Testnet and XRPL Testnet).
 - setup.js can be re-run at any time to generate new accounts and fresh liquidity.
-- Partial payments (partialPayment.js) will result in "tecPATH_DRY" after the first run as the trustline limit is at maximum. 
-- Path payments (pathPayment.js) can still return tecPATH_DRY depending on current DEX state — this is normal on testnet.
+- config.json generated after the intital setup contains account information, any subseqent run of setup.js appends fresh accounts to the list
+- Path payments (pathPayment.js) may return tecPATH_DRY depending on current DEX state — this is normal on testnet.
 - For IOU payments, the sender must have a trustline to the issuer.
 - These examples are educational and intentionally minimal. Add proper error handling and security practices before using in production.
 - Never hard-code real/mainnet seeds.
