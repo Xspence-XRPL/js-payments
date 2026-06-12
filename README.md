@@ -44,8 +44,8 @@ See `xahau/README.md` and `xrpl/README.md` for network-specific details.
 - Clone the repository and install dependencies from the repository root
 
 ```Bash
-git clone https://github.com/Xspence-XRPL/payment.git
-cd payment
+git clone https://github.com/Xspence-XRPL/js-payments.git
+cd js-payments
 npm install
 ```
 
